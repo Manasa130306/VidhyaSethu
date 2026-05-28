@@ -1,0 +1,6 @@
+{
+  "name": "Vidyasethu Exam Orchestrator",
+  "description": "Next-generation autonomous exam orchestrator balancing Bloom's Taxonomy, university outcomes, structure patterns, and 0% multi-set overlap.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Lexend", var(--font-sans);
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0B0E14] text-[#E2E8F0] antialiased selection:bg-[#00D2FF]/30 selection:text-[#00D2FF];
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-[#0B0E14];
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[#151921]/60 backdrop-blur-md border border-white/15 rounded-3xl shadow-xl shadow-black/40;
+  }
+  
+  .glass-card-glow {
+    @apply bg-[#151921]/60 backdrop-blur-md border border-white/15 rounded-3xl shadow-xl shadow-[#00D2FF]/5 relative overflow-hidden;
+  }
+
+  .glass-card-glow::after {
+    content: '';
+    @apply absolute inset-0 -z-10 bg-radial-[circle_at_top_right] from-[#00D2FF]/5 via-transparent to-transparent pointer-events-none;
+  }
+
+  .btn-primary-neon {
+    @apply bg-[#00D2FF] text-[#0B0E14] font-semibold px-6 py-3.5 rounded-2xl transition-all duration-300 active:scale-95 flex items-center justify-center gap-2 shadow-lg shadow-[#00D2FF]/20 hover:shadow-[#00D2FF]/40 hover:bg-[#00e1ff];
+  }
+
+  .btn-secondary-neon {
+    @apply bg-[#151921]/80 text-[#E2E8F0] font-medium px-6 py-3.5 rounded-2xl transition-all duration-300 active:scale-95 flex items-center justify-center gap-2 border border-white/10 hover:bg-[#151921] hover:border-white/20;
+  }
+
+  .input-field-neon {
+    @apply w-full bg-[#151921]/40 border border-white/10 rounded-2xl p-4 text-white placeholder-slate-500 focus:border-[#00D2FF]/80 focus:ring-1 focus:ring-[#00D2FF] outline-none transition-all duration-300 backdrop-blur-sm;
+  }
+}
+
+/* Watermark & Print Styles representation */
+.paper-watermark {
+  background-image: radial-gradient(#00d2ff 0.5px, transparent 0.5px), radial-gradient(#00d2ff 0.5px, #0b0e14 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  opacity: 0.1;
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    size: auto;
+    margin: 15mm;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+  .print-container {
+    background: white !important;
+    color: black !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .print-table {
+    border: 1px solid #000 !important;
+    border-collapse: collapse !important;
+    width: 100% !important;
+    color: black !important;
+  }
+  .print-table th, .print-table td {
+    border: 1px solid #000 !important;
+    padding: 8px !important;
+    color: black !important;
+  }
+  .print-text {
+    color: black !important;
+  }
+  .print-bg-white {
+    background: white !important;
+  }
+}
+

@@ -1,0 +1,44 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "generated_papers": {
+      "title": "Generated Exam Paper",
+      "description": "Generated question paper multi-set details",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "courseName": { "type": "string" },
+        "subjectCode": { "type": "string" },
+        "universityName": { "type": "string" },
+        "examType": { "type": "string" },
+        "totalSets": { "type": "number" },
+        "sets": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "userEmail": { "type": "string" }
+      },
+      "required": ["courseName", "subjectCode", "universityName", "sets"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "User profile data"
+    },
+    "/generated_papers/{paperId}": {
+      "schema": "generated_papers",
+      "description": "Stored generated exam papers and multi-sets"
+    }
+  }
+}
