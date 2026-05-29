@@ -1,7 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Question, KLevel, Difficulty, SyllabusData, ExamSet } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "AIzaSyD1FUQLEUsgOl-2xMwOcfBDZIjrojWLgs8" });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "Enter api key" });
 
 export const geminiService = {
   async extractSyllabus(input: string | File): Promise<SyllabusData> {
