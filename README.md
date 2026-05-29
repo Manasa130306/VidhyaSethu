@@ -37,6 +37,10 @@ Designed for universities, colleges, and educational departments to generate hig
 │       └── geminiService.ts   # Core prompt pipelines & Gemini SDK orchestration
 └── README.md                  # Comprehensive documentation
 
+at first place the api key in the geminiservices.ts
+
+
+
 ## Run Locally
 
 **Prerequisites:**  Node.js
